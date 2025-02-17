@@ -1,8 +1,8 @@
-const Bookmodel = require('../models/book')
+const Categories = require('../models/categories')
 
 const getindex = async (req, res) => {
     try {
-        const [data] = await Bookmodel.getindex();
+        const [data] = await Categories.getindex();
         res.json({
             message: 'GET all users success',
             data: data
@@ -18,7 +18,7 @@ const getindex = async (req, res) => {
 const createnew = async (req, res) => {
     const { body } = req;
     try {
-        await Bookmodel.createnew(body);
+        await Categories.createnew(body);
         res.json({
             message: 'CREATE new book',
             data: body
@@ -31,11 +31,11 @@ const createnew = async (req, res) => {
     }
 }
 
-const updateBook = async (req, res) => {
+const updateKategori = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        await Bookmodel.updateUser(body, id);
+        await Categories.updateKategori(body, id);
         res.json({
             message: 'UPDATE berhasil',
             data: body,
@@ -49,12 +49,12 @@ const updateBook = async (req, res) => {
 }
 
 
-const deleteBook = async (req, res) => {
+const deleteKategori = async (req, res) => {
     const { id } = req.params;
 
     try {
         // Panggil fungsi deleteUser dari model
-        const [result] = await Bookmodel.deleteUser(id);
+        const [result] = await Categories.deleteKategori(id);
 
 
         res.json({
@@ -83,7 +83,7 @@ const getByid = async (req, res) => {
             return res.status(400).json({ message: "ID tidak ditemukan dalam request" });
         }
 
-        const [data] = await Bookmodel.getByid(id); // Panggil model dengan nama yang sesuai
+        const [data] = await Categories.getByid(id); // Panggil model dengan nama yang sesuai
 
         if (data.length === 0) {
             return res.status(404).json({ message: 'Book not found' });
@@ -108,7 +108,7 @@ const getByid = async (req, res) => {
 module.exports = {
     getindex,
     createnew,
-    updateBook,
-    deleteBook,
+    updateKategori,
+    deleteKategori,
     getByid,
 }

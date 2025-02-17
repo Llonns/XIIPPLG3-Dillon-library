@@ -10,8 +10,8 @@ router.get('/users/:id', bookController.getByid)
 
  router.post('/users', bookController.createnew)
 
-router.put('/user/:id',bookController.updateUser )
+router.put('/user/:id',bookController.updateBook )
 
- router.delete('/user/:id', bookController.deleteUser )
+ router.delete('/user/:id', bookController.deleteBook )
 
   module.exports = router
