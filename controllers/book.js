@@ -35,7 +35,7 @@ const updateBook = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        await Bookmodel.updateUser(body, id);
+        await Bookmodel.updateBook(body, id);
         res.json({
             message: 'UPDATE berhasil',
             data: body,
@@ -54,7 +54,7 @@ const deleteBook = async (req, res) => {
 
     try {
         // Panggil fungsi deleteUser dari model
-        const [result] = await Bookmodel.deleteUser(id);
+        const [result] = await Bookmodel.deleteBook(id);
 
 
         res.json({
