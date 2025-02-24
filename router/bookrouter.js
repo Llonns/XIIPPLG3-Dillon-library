@@ -4,14 +4,14 @@ const router = express.Router()
 const bookController = require('../controllers/book')
 
 
-router.get('/users', bookController.getindex)
+router.get('/book', bookController.getindex)
 
-router.get('/users/:id', bookController.getByid)
+router.get('/book/:id', bookController.getByid)
 
- router.post('/users', bookController.createnew)
+ router.post('/book', bookController.createnew)
 
-router.put('/user/:id',bookController.updateBook )
+router.put('/book/:id',bookController.updateBook )
 
- router.delete('/user/:id', bookController.deleteBook )
+ router.delete('/book/:id', bookController.deleteBook )
 
   module.exports = router
